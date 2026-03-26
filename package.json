@@ -62,7 +62,7 @@
     "remark-rehype": "^11.1.2",
     "string-length": "^7.0.1",
     "to-vfile": "^8.0.0",
-    "tsdown": "^0.20.3",
+    "tsdown": "^0.21.5",
     "type-fest": "^5.4.4",
     "typescript": "^5.9.3",
     "unified": "^11.0.5",
