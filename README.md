@@ -3,12 +3,11 @@
 [![npm Version][npm-badge]][npm] [![JSR Version][jsr-badge]][jsr]
 [![GitHub Release][github-badge]][github-release]
 
-A configurable [remark-gfm][remark-gfm] that allows you to toggle the
-[GitHub Flavored Markdown (GFM)][gfm] features.
+A configurable [remark-gfm][remark-gfm] that allows you to toggle the [GitHub Flavored Markdown
+(GFM)][gfm] features.
 
-This package has the same functionality as [remark-gfm], with the additional
-ability to enable or disable specific GFM features like autolinks, footnotes,
-tables, and more.
+This package has the same functionality as [remark-gfm], with the additional ability to enable or
+disable specific GFM features like autolinks, footnotes, tables, and more.
 
 ## Installation
 
@@ -77,8 +76,8 @@ This package exports the following:
 function remarkGfmCustom(options?: Options): void;
 ```
 
-The main plugin. It receives one optional parameter to configure behavior. See
-the [`Options` section](#options) below for configuration details.
+The main plugin. It receives one optional parameter to configure behavior. See the
+[`Options` section](#options) below for configuration details.
 
 #### `Options`
 
@@ -95,8 +94,8 @@ type Options = {
 };
 ```
 
-Configuration for [`remarkGfmCustom`](#remarkgfmcustom). This consists of two
-main categories: [`remarkGfm`](#remarkgfm) and [`plugins`](#plugins).
+Configuration for [`remarkGfmCustom`](#remarkgfmcustom). This consists of two main categories:
+[`remarkGfm`](#remarkgfm) and [`plugins`](#plugins).
 
 ##### `remarkGfm`
 
@@ -104,8 +103,7 @@ main categories: [`remarkGfm`](#remarkgfm) and [`plugins`](#plugins).
 type remarkGfm = FootnoteOptions | TableOptions | StrikethroughOptions;
 ```
 
-Options passed directly to the [remark-gfm][remark-gfm] plugins. The available
-fields are:
+Options passed directly to the [remark-gfm][remark-gfm] plugins. The available fields are:
 
 ##### `firstLineBlank`
 
@@ -135,8 +133,8 @@ Detect the size of table cells, used when aligning cells.
 type singleTilde = boolean;
 ```
 
-Whether to support strikethrough with a single tilde. Single tildes work on
-GitHub but are technically prohibited by GFM.
+Whether to support strikethrough with a single tilde. Single tildes work on GitHub but are
+technically prohibited by GFM.
 
 - Default: `true`.
 - Reference: <https://github.com/remarkjs/remark-gfm#options>
@@ -167,8 +165,8 @@ Whether to add a space of padding between table pipes and cells.
 
 Options to enable or disable specific [remark-gfm][remark-gfm] bundled plugins.
 
-All fields below are `boolean` and default to `true`. Set a field to `false` to
-disable that specific GFM feature.
+All fields below are `boolean` and default to `true`. Set a field to `false` to disable that
+specific GFM feature.
 
 ##### `autolinkLiteral`
 
@@ -177,18 +175,15 @@ Toggle
 
 ##### `footnote`
 
-Toggle the
-[GFM footnotes](https://github.com/micromark/micromark-extension-gfm-footnote).
+Toggle the [GFM footnotes](https://github.com/micromark/micromark-extension-gfm-footnote).
 
 ##### `strikethrough`
 
-Toggle the
-[GFM strikethrough](https://github.com/micromark/micromark-extension-gfm-strikethrough).
+Toggle the [GFM strikethrough](https://github.com/micromark/micromark-extension-gfm-strikethrough).
 
 ##### `table`
 
-Toggle the
-[GFM tables](https://github.com/micromark/micromark-extension-gfm-table).
+Toggle the [GFM tables](https://github.com/micromark/micromark-extension-gfm-table).
 
 ##### `taskListItem`
 
@@ -204,10 +199,13 @@ Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for contribution guidelines.
 [MIT](./LICENSE)
 
 [gfm]: https://github.github.com/gfm/
-[github-badge]: https://img.shields.io/github/v/release/qz-project/remark-gfm-custom?style=for-the-badge&logo=github&logoSize=auto&label=%20&labelColor=%23181717&color=%23edede6
+[github-badge]:
+  https://img.shields.io/github/v/release/qz-project/remark-gfm-custom?style=for-the-badge&logo=github&logoSize=auto&label=%20&labelColor=%23181717&color=%23edede6
 [github-release]: https://github.com/qz-project/remark-gfm-custom/releases
 [jsr]: https://jsr.io/@qz/remark-gfm-custom
-[jsr-badge]: https://img.shields.io/jsr/v/%40qz/remark-gfm-custom?style=for-the-badge&logo=jsr&logoColor=%23163c4c&logoSize=auto&label=%20&labelColor=%23ead527&color=%23FAF6D1
+[jsr-badge]:
+  https://img.shields.io/jsr/v/%40qz/remark-gfm-custom?style=for-the-badge&logo=jsr&logoColor=%23163c4c&logoSize=auto&label=%20&labelColor=%23ead527&color=%23FAF6D1
 [npm]: https://npmjs.com/package/remark-gfm-custom
-[npm-badge]: https://img.shields.io/npm/v/remark-gfm-custom?style=for-the-badge&logo=npm&logoSize=auto&label=%20&labelColor=%23ce0000&color=%23FFE9E9
+[npm-badge]:
+  https://img.shields.io/npm/v/remark-gfm-custom?style=for-the-badge&logo=npm&logoSize=auto&label=%20&labelColor=%23ce0000&color=%23FFE9E9
 [remark-gfm]: https://github.com/remarkjs/remark-gfm

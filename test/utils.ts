@@ -7,9 +7,10 @@ import { VFile } from "vfile";
 import { read } from "to-vfile";
 import { remark } from "remark";
 import { join } from "node:path";
-import { assertEquals } from "@std/assert";
+import { readFile } from "node:fs/promises";
+import { strictEqual } from "node:assert/strict";
 import { type Plugin, unified } from "unified";
-import { type Options, remarkGfmCustom } from "../src/index.ts";
+import { type Options, remarkGfmCustom } from "$dist";
 
 export { check };
 
@@ -20,10 +21,7 @@ export { check };
  * @param options - Plugin settings to use during the test.
  */
 async function check(fixtureName: string, options?: Options): Promise<void> {
-  const outputFormats = [
-    "markdown",
-    "html",
-  ] as const satisfies ParseConfig["outputFormat"][];
+  const outputFormats = ["markdown", "html"] as const satisfies ParseConfig["outputFormat"][];
 
   /**
    * Decides if we should compare our custom GFM output with standard
@@ -41,7 +39,7 @@ async function check(fixtureName: string, options?: Options): Promise<void> {
         outputFormat: format,
         options,
         compareWithStandardGfm,
-      })
+      }),
     ),
   );
 }
@@ -58,13 +56,9 @@ async function parse(config: ParseConfig): Promise<void> {
   const { fixtureName, outputFormat, options, compareWithStandardGfm } = config;
 
   // Find the source fixture and the corresponding snapshot file
-  const fixturePath = join(
-    import.meta.dirname!,
-    "fixtures",
-    `${fixtureName}.md`,
-  );
+  const fixturePath = join(import.meta.dirname, "fixtures", `${fixtureName}.md`);
   const snapshotPath = join(
-    import.meta.dirname!,
+    import.meta.dirname,
     "snapshots",
     `${fixtureName}${outputFormat === "markdown" ? ".md" : ".html"}`,
   );
@@ -83,23 +77,15 @@ async function parse(config: ParseConfig): Promise<void> {
   const [standardResult, customResult, snapshot] = await Promise.all([
     standardResultPromise,
     customResultPromise,
-    Deno.readTextFile(snapshotPath),
+    readFile(snapshotPath, { encoding: "utf8" }),
   ]);
 
   // Verify the custom output matches the saved snapshot.
-  assertEquals(
-    customResult,
-    snapshot,
-    "Custom output does not match the snapshot",
-  );
+  strictEqual(customResult, snapshot, "Custom output does not match the snapshot");
 
   // If requested, verify standard GFM also matches the snapshot.
   if (compareWithStandardGfm) {
-    assertEquals(
-      standardResult,
-      snapshot,
-      "Standard output does not match the snapshot",
-    );
+    strictEqual(standardResult, snapshot, "Standard output does not match the snapshot");
   }
 }
 
@@ -115,9 +101,7 @@ async function parseMarkdown<PluginType extends Plugin>(
   plugin: PluginType,
   pluginOptions: Parameters<PluginType>[number],
 ) {
-  const result = await remark()
-    .use(plugin, pluginOptions)
-    .process(new VFile(file));
+  const result = await remark().use(plugin, pluginOptions).process(new VFile(file));
 
   return result.toString();
 }

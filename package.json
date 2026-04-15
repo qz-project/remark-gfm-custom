@@ -42,25 +42,31 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown",
+    "fmt": "prettier . --write",
+    "fmt:check": "prettier . --check",
+    "lint": "eslint . --fix && tsc --noEmit",
     "dev": "tsdown --watch",
-    "lint": "deno lint && tsc --noEmit",
-    "test": "deno test -R=test/fixtures,test/snapshots",
-    "check": "deno fmt --check && deno task build && deno task lint && deno task test",
-    "release": "semantic-release"
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm run fmt && pnpm run build && pnpm run lint && pnpm run test"
   },
   "devDependencies": {
     "@anolilab/semantic-release-clean-package-json": "^5.5.0",
+    "@anolilab/semantic-release-pnpm": "^8.1.0",
+    "@eslint/js": "^10.0.1",
     "@sebbo2002/semantic-release-jsr": "^3.2.1",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/github": "^12.0.6",
-    "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@types/node": "^25.6.0",
-    "bumpp": "^11.0.1",
+    "@vitest/coverage-v8": "^4.1.4",
+    "eslint": "^10.2.0",
+    "jiti": "^2.6.1",
     "mdast-util-from-markdown": "^2.0.3",
     "mdast-util-to-markdown": "^2.1.2",
     "micromark-util-types": "^2.0.2",
+    "prettier": "^3.8.3",
     "rehype-format": "^5.0.1",
     "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",
@@ -73,9 +79,11 @@
     "tsdown": "^0.21.8",
     "type-fest": "^5.5.0",
     "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.2",
     "unified": "^11.0.5",
     "unplugin-unused": "^0.5.7",
-    "vfile": "^6.0.3"
+    "vfile": "^6.0.3",
+    "vitest": "^4.1.4"
   },
   "dependencies": {
     "mdast-util-gfm-autolink-literal": "^2.0.1",
@@ -117,7 +125,7 @@
       ],
       "@semantic-release/release-notes-generator",
       "@anolilab/semantic-release-clean-package-json",
-      "@semantic-release/npm",
+      "@anolilab/semantic-release-pnpm",
       "@sebbo2002/semantic-release-jsr",
       "@semantic-release/github"
     ]
