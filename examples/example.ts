@@ -6,11 +6,11 @@ import { unified } from "unified";
 import { remarkGfmCustom } from "remark-gfm-custom";
 import type { Options } from "remark-gfm-custom";
 
+// This disables the GFM autolink feature.
 const remarkGfmCustomOptions: Options = { plugins: { autolinkLiteral: false } };
 
 const file = await unified()
   .use(remarkParse)
-  // This disables the GFM autolink feature.
   .use(remarkGfmCustom, remarkGfmCustomOptions)
   .use(remarkRehype)
   .use(rehypeStringify)
