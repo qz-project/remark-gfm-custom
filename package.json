@@ -24,13 +24,13 @@
     "unified"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/quadratz/remark-gfm-custom#readme",
+  "homepage": "https://github.com/qz-project/remark-gfm-custom#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quadratz/remark-gfm-custom.git"
+    "url": "git+https://github.com/qz-project/remark-gfm-custom.git"
   },
   "bugs": {
-    "url": "https://github.com/quadratz/remark-gfm-custom/issues",
+    "url": "https://github.com/qz-project/remark-gfm-custom/issues",
     "email": "quadratz@proton.me"
   },
   "exports": {

@@ -13,7 +13,7 @@ Deno installed on your system. If you haven't installed it yet, please refer to 
 ### Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/quadratz/remark-gfm-custom.git`
+2. Clone your fork: `git clone https://github.com/qz-project/remark-gfm-custom.git`
 3. Navigate to the project directory: `cd remark-gfm-custom`
 4. Install dependencies: `deno install`
 5. Start development: `deno task dev`
@@ -58,7 +58,7 @@ details can be found in [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 ## Questions?
 
 If you have any questions, please
-[open an issue](https://github.com/quadratz/remark-gfm-custom/issues/new) for discussion or contact
-us via email at <quadratz@proton.me> or via Telegram at [@quadratz](https://t.me/quadratz).
+[open an issue](https://github.com/qz-project/remark-gfm-custom/issues/new) for discussion or
+contact us via email at <quadratz@proton.me> or via Telegram at [@quadratz](https://t.me/quadratz).
 
 Thank you for contributing to remark-gfm-custom!
