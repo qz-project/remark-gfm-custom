@@ -1,11 +1,6 @@
 import type { RequiredDeep } from "type-fest";
 import type { Processor } from "unified";
-import type {
-  FootnoteOptions,
-  Options,
-  StrikethroughOptions,
-  TableOptions,
-} from "./types/public.ts";
+import type { FootnoteOptions, Options, StrikethroughOptions, TableOptions } from "./types.ts";
 
 import { merge } from "ts-deepmerge";
 import { typedObjectKeys } from "./utils.ts";
@@ -77,22 +72,18 @@ const DEFAULT_OPTIONS = {
  * ```
  */
 function remarkGfmCustom(options?: Options): void;
-function remarkGfmCustom(
-  this: Processor,
-  userOptions: Options = DEFAULT_OPTIONS,
-): void {
+function remarkGfmCustom(this: Processor, userOptions: Options = DEFAULT_OPTIONS): void {
   const options = merge(DEFAULT_OPTIONS, userOptions) as RequiredDeep<Options>;
   const data = this.data();
 
-  if (!data.micromarkExtensions) data.micromarkExtensions = [];
-  if (!data.fromMarkdownExtensions) data.fromMarkdownExtensions = [];
-  if (!data.toMarkdownExtensions) data.toMarkdownExtensions = [];
+  data.micromarkExtensions ??= [];
+  data.fromMarkdownExtensions ??= [];
+  data.toMarkdownExtensions ??= [];
 
-  const { micromarkExtensions, fromMarkdownExtensions, toMarkdownExtensions } =
-    data;
+  const { micromarkExtensions, fromMarkdownExtensions, toMarkdownExtensions } = data;
 
   for (const name of typedObjectKeys(options.plugins)) {
-    if (options.plugins[name] === false) continue;
+    if (!options.plugins[name]) continue;
 
     switch (name) {
       case "autolinkLiteral":
@@ -139,6 +130,7 @@ function remarkGfmCustom(
 
       default:
         throw new TypeError(
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
           `Unknown "${name}" for plugin options. Please ensure your config is not mistyped.`,
         );
     }

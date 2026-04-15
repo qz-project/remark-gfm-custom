@@ -5,7 +5,7 @@ import type { Options as StrikethroughOptions } from "micromark-extension-gfm-st
 /**
  * Configuration for `remarkGfmCustom`
  */
-type Options = {
+interface Options {
   /**
    * Options for [remark-gfm][] plugins.
    *
@@ -67,6 +67,6 @@ type Options = {
      */
     taskListItem?: boolean;
   };
-};
+}
 
 export type { FootnoteOptions, Options, StrikethroughOptions, TableOptions };

@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["es2023"],
+    "target": "ES2024",
+    "lib": ["ES2024"],
     "moduleDetection": "force",
     "module": "preserve",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "types": ["node"],
-    "strict": true,
     "noUnusedLocals": true,
     "declaration": true,
     "isolatedDeclarations": true,
@@ -16,7 +14,16 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "skipLibCheck": true
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "paths": {
+      "$src/*": ["./src/*"],
+      "$dist": ["./dist/"]
+    }
   },
-  "include": ["src"]
+  "include": ["**/*.ts"],
+  "exclude": ["dist", "coverage", "node_modules"]
 }
