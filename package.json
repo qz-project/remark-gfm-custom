@@ -49,9 +49,9 @@
     "release": "bumpp --commit --push --tag"
   },
   "devDependencies": {
-    "@types/node": "^25.2.3",
-    "bumpp": "^10.4.1",
-    "mdast-util-from-markdown": "^2.0.2",
+    "@types/node": "^25.6.0",
+    "bumpp": "^11.0.1",
+    "mdast-util-from-markdown": "^2.0.3",
     "mdast-util-to-markdown": "^2.1.2",
     "micromark-util-types": "^2.0.2",
     "rehype-format": "^5.0.1",
@@ -62,9 +62,9 @@
     "remark-rehype": "^11.1.2",
     "string-length": "^7.0.1",
     "to-vfile": "^8.0.0",
-    "tsdown": "^0.20.3",
-    "type-fest": "^5.4.4",
-    "typescript": "^5.9.3",
+    "tsdown": "^0.21.8",
+    "type-fest": "^5.5.0",
+    "typescript": "^6.0.2",
     "unified": "^11.0.5",
     "vfile": "^6.0.3"
   },
