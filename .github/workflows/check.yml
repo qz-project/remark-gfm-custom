@@ -1,0 +1,32 @@
+name: Check
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - beta
+      - alpha
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install dependencies
+        run: deno install --frozen
+
+      - name: Build
+        run: deno task build
+
+      - name: Check
+        run: deno task check

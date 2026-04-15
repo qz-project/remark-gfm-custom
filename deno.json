@@ -1,4 +1,11 @@
 {
+  "name": "@qz/remark-gfm-custom",
+  "version": "0.0.0-semantically-released",
+  "license": "MIT",
+  "exports": "./src/index.ts",
+  "publish": {
+    "include": ["./src", "README.md"]
+  },
   "imports": {
     "@std/assert": "jsr:@std/assert@^1.0.19"
   },
