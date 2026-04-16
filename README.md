@@ -11,7 +11,7 @@ disable specific GFM features like autolinks, footnotes, tables, and more.
 
 ## Installation
 
-`remark-gfm-custom` is available on both [npm.com][npm] and [JSR.io][jsr].
+`remark-gfm-custom` is available on both [npm][npm] and [JSR][jsr].
 
 ### Using npm
 
