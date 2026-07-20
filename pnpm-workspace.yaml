@@ -6,3 +6,6 @@ blockExoticSubdeps: true
 minimumReleaseAge: 10080 # 7 days
 # https://pnpm.io/supply-chain-security#enforce-trust-with-trustpolicy
 trustPolicy: no-downgrade
+minimumReleaseAgeExclude:
+  # Renovate security update: ts-deepmerge@8.0.0
+  - ts-deepmerge@8.0.0
