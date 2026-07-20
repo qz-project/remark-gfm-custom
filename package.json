@@ -96,7 +96,7 @@
     "micromark-extension-gfm-strikethrough": "^2.1.0",
     "micromark-extension-gfm-table": "^2.1.1",
     "micromark-extension-gfm-task-list-item": "^2.1.0",
-    "ts-deepmerge": "^7.0.3"
+    "ts-deepmerge": "^8.0.0"
   },
   "release": {
     "plugins": [
